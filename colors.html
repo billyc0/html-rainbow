@@ -1,0 +1,182 @@
+<!doctype html>
+<!--
+	THE HTML RAINBOW
+	Author: Billy Chandler
+	Version: 1.0
+	Last Revised: September 3, 2017
+	
+	Description:
+	Everytime the page is clicked, it changes color. The color's name will be displayed on the page.
+-->
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<title>THE HTML RAINBOW</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<style>
+		/** color name displayed on page **/
+		#colorName {
+			background-color: white;
+			border-color: darkgray;
+			border-radius: 10px;
+			border-style: solid;
+			color: black;
+			font-family: Arial;
+			margin: auto;
+			max-width: 400px;
+			opacity: 0.9;
+			padding: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		/** important warning on top of page **/
+		#warning {
+			background-color: black;
+			color: white;
+			font-family: Arial;
+			margin-bottom: 15px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="warning" class="container-fluid">
+		<!-- important warning for those with photosensitive epilespy -->
+		<h5><b>WARNING: </b>The frequent change of color used in this web application may be sensitive to those with photosensitve epilepsy. Please use with caution!</h5>
+	</div>
+	<script type="text/javascript">
+		
+		// array of background color names
+		var colors = [
+						"aliceblue",
+						"antiquewhite",
+						"aqua",
+						"aquamarine",
+						"azure",
+						"beige",
+						"bisque",
+						"black",
+						"blanchedalmond",
+						"blue",
+						"blueviolet",
+						"brown",
+						"burlywood",
+						"cadetblue",
+						"chartreuse",
+						"chocolate",
+						"coral",
+						"cornflowerblue",
+						"cornsilk",
+						"crimson",
+						"cyan",
+						"dodgerblue",
+						"firebrick",
+						"floralwhite",
+						"forestgreen",
+						"fuchsia",
+						"gainsboro",
+						"ghostwhite",
+						"gold",
+						"goldenrod",
+						"gray",
+						"greenyellow",
+						"honeydew",
+						"hotpink",
+						"indianred",
+						"indigo",
+						"ivory",
+						"khaki",
+						"lavender",
+						"lavendarblush",
+						"lawngreen",
+						"lemonchiffon",
+						"lime",
+						"limegreen",
+						"linen",
+						"magenta",
+						"maroon",
+						"midnightblue",
+						"mintcream",
+						"mistyrose",
+						"moccasin",
+						"navajowhite",
+						"navy",
+						"oldlace",
+						"olive",
+						"olivedrab",
+						"orange",
+						"orangered",
+						"orchid",
+						"papayawhip",
+						"peachpuff",
+						"peru",
+						"pink",
+						"plum",
+						"powderblue",
+						"purple",
+						"rebeccapurple",
+						"red",
+						"rosybrown",
+						"royalblue",
+						"saddlebrown",
+						"salmon",
+						"sandybrown",
+						"seagreen",
+						"seashell",
+						"sienna",
+						"silver",
+						"skyblue",
+						"snow",
+						"springgreen",
+						"steelblue",
+						"tan",
+						"teal",
+						"thistle",
+						"tomato",
+						"turquoise",
+						"violet",
+						"wheat",
+						"white",
+						"whitesmoke",
+						"yellow",
+						"yellowgreen"
+					  ];
+		
+		// array pointer for a randomly chosen color
+		var color = colors[Math.floor(Math.random() * 92)];
+		
+		// declares a random background color
+		$("document").ready(function() {
+			$("body").css("background-color", color);
+			changeColor();
+		});
+		
+		// changes the color of the background based on a click
+		function changeColor() {
+			
+			// logic for color changing
+			$("html").click(function(e) {
+				var color = colors[Math.floor(Math.random() * 92)];
+				e.preventDefault();
+				$("body").css("background-color", color);
+				$("#colorName").html("<h2>" + color + "</h2>");
+			});
+			
+			// changes the cursor to a pointing hand
+			$("html").hover(function(e) {
+				$("html").css("cursor", "pointer");
+			});
+		}
+		
+		// the name of the color displayed on the web page
+		document.write("<div id='colorName'><h1>" + color + "</h1></div>");
+	</script>
+	
+</body>
+</html>
